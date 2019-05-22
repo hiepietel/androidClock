@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,47 +7,174 @@
     tools:context=".MainActivity">
 
 
-    <TextView
-         android:id="@+id/textView"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="TextView"
-         tools:layout_editor_absoluteX="161dp"
-         tools:layout_editor_absoluteY="400dp" />
-
-    <Button
-         android:id="@+id/button"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:onClick="send"
-         android:text="send"
-         app:layout_constraintTop_toBottomOf="@+id/editText"
-         tools:layout_editor_absoluteX="161dp" />
-
-    <EditText
-        android:id="@+id/editText"
+    <LinearLayout
+        android:id="@+id/colorLayout"
         android:layout_width="match_parent"
-        android:layout_height="43dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="258dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="19dp"
-        tools:layout_editor_absoluteY="109dp" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="open time picker"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:id="@+id/TP" />
+        android:layout_height="220dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
-    <TextView
-        android:id="@+id/timePicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
-        android:text="open timne picker" />
-</RelativeLayout>
+        <TextView
+            android:id="@+id/changeColor"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:text="Change Color"
+            tools:layout_conversion_absoluteHeight="19dp"
+            tools:layout_conversion_absoluteWidth="200dp"
+            tools:layout_editor_absoluteX="162dp"
+            tools:layout_editor_absoluteY="212dp" />
+
+
+        <Button
+            android:id="@+id/cyanBtn"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@color/CYAN"
+            android:text="CYAN"
+            android:theme="@color/CYAN"
+            tools:layout_conversion_absoluteHeight="40dp"
+            tools:layout_conversion_absoluteWidth="88dp"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="231dp" />
+
+
+        <Button
+            android:id="@+id/magentaBtn"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/PURPLE"
+            android:text="PURPLE"
+            android:theme="@color/PURPLE"
+            tools:layout_conversion_absoluteHeight="48dp"
+            tools:layout_conversion_absoluteWidth="88dp"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="279dp" />
+
+
+        <Button
+            android:id="@+id/greenBtn"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@color/GREEN"
+            android:text="GREEN"
+            android:theme="@color/GREEN"
+            tools:layout_conversion_absoluteHeight="48dp"
+            tools:layout_conversion_absoluteWidth="88dp"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="327dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/clockLayout"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/colorLayout"
+        tools:layout_conversion_absoluteHeight="230dp"
+        tools:layout_conversion_absoluteWidth="200dp">
+
+
+        <TextView
+            android:id="@+id/timePicker"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:text="ALARM TIME NOT SET"
+            app:layout_constraintEnd_toEndOf="@+id/TP"
+            app:layout_constraintStart_toStartOf="@+id/TP" />
+
+
+        <Button
+            android:id="@+id/TP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="set alarm time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timePicker" />
+
+
+        <Switch
+            android:id="@+id/alarmONOFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Alarm ON/OFF"
+            app:layout_constraintEnd_toEndOf="@+id/TP"
+            app:layout_constraintStart_toStartOf="@+id/TP"
+            app:layout_constraintTop_toBottomOf="@+id/TP" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tableLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clockLayout">
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_alignParentTop="true"
+            android:ems="10"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="555dp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="send"
+            android:text="send"
+            tools:layout_editor_absoluteX="146dp"
+            tools:layout_editor_absoluteY="1423dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            android:text="backlog"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="400dp" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

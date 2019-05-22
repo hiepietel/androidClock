@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:gravity="center"
-            android:text="Change Color"
+            android:text="CHANGE COLOR"
             tools:layout_conversion_absoluteHeight="19dp"
             tools:layout_conversion_absoluteWidth="200dp"
             tools:layout_editor_absoluteX="162dp"

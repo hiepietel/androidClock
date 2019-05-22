@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute){
         TextView textView = (TextView)findViewById(R.id.timePicker);
-        textView.setText("Hour: "+hourOfDay+ " m: "+minute);
+
         String h;
         if(hourOfDay<10){
             h = "0"+Integer.toString(hourOfDay);
@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
         else{
             m = Integer.toString(minute);
         }
+        textView.setText("ALARM TIME SET TO "+h+":"+m);
         MessageSender messageSender = new MessageSender(MainActivity.this);
         messageSender.execute("sa"+h+"m"+m+"end");
     }
@@ -106,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
     @Override
     public void onTaskComplete(String msg) {
         Log.d("msg", "ontask");
-        //e1.setText("");
+        e1.setText("");
 
         //String temp = e1.getText() +"\n" +msg;
 

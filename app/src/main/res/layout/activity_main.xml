@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/colorLayout"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="184dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
@@ -38,9 +38,9 @@
 
         <Button
             android:id="@+id/cyanBtn"
-            android:layout_width="360dp"
+            android:layout_width="370dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="0dp"
             android:background="@color/CYAN"
             android:text="CYAN"
             android:theme="@color/CYAN"
@@ -52,9 +52,8 @@
 
         <Button
             android:id="@+id/magentaBtn"
-            android:layout_width="360dp"
+            android:layout_width="370dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:layout_marginTop="0dp"
             android:background="@color/PURPLE"
             android:text="PURPLE"
@@ -67,9 +66,9 @@
 
         <Button
             android:id="@+id/greenBtn"
-            android:layout_width="360dp"
+            android:layout_width="370dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="0dp"
             android:background="@color/GREEN"
             android:text="GREEN"
             android:theme="@color/GREEN"
@@ -133,19 +132,67 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/tableLayout3"
+        android:id="@+id/IPLayout"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="123dp"
         android:layout_margin="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:orientation="vertical"
+        android:saveEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/clockLayout">
+
+        <TextView
+            android:id="@+id/changeIP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:text="CHANGE IP"
+            tools:layout_conversion_absoluteHeight="19dp"
+            tools:layout_conversion_absoluteWidth="200dp"
+            tools:layout_editor_absoluteX="162dp"
+            tools:layout_editor_absoluteY="212dp" />
+
+        <EditText
+            android:id="@+id/editIP"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_alignParentTop="true"
+            android:ems="10"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="555dp" />
+
+        <Button
+            android:id="@+id/setIP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="setIP"
+            tools:layout_editor_absoluteX="146dp"
+            tools:layout_editor_absoluteY="1423dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tableLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical"
+        android:saveEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IPLayout">
 
         <EditText
             android:id="@+id/editText"

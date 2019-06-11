@@ -30,9 +30,10 @@ public class MessageSender extends AsyncTask<String,String,String>{
     protected String doInBackground(String... voids){
 
         String message = voids[0];
+        String IP = voids[1];
 
         try {
-            s = new Socket("192.168.0.196", 6666);
+            s = new Socket(IP, 6666);
             pw = new PrintWriter(s.getOutputStream());
             pw.write(message);
             pw.flush();

@@ -14,11 +14,11 @@ import android.util.Log;
 import android.widget.TimePicker;
 
 public class MainActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, TaskCompleted{
-
-    EditText e1;
-    TextView tv;
+    String IP ="192.168.0.176";
+    EditText e1, editIP;
+    TextView tv, changeIP;
     Button TPbtn;
-    Button magentaBtn, cyanBtn, greenBtn;
+    Button magentaBtn, cyanBtn, greenBtn, IPBtn;
     Switch alarmONOFF;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,20 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
         magentaBtn = (Button)findViewById(R.id.magentaBtn);
         greenBtn = (Button)findViewById(R.id.greenBtn);
         alarmONOFF = (Switch)findViewById(R.id.alarmONOFF);
+        //IP
+        editIP = (EditText) findViewById(R.id.editIP);
+        IPBtn = (Button)findViewById(R.id.setIP);
+        changeIP = (TextView)findViewById(R.id.changeIP);
+
+        IPBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IP = editIP.getText().toString();
+                changeIP.setText("IP set to: "+IP);
+                MessageSender messageSender = new MessageSender(MainActivity.this);
+                messageSender.execute("connect", IP);
+            }
+        });
         TPbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -43,21 +57,21 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
             @Override
             public void onClick(View v) {
                 MessageSender messageSender = new MessageSender(MainActivity.this);
-                messageSender.execute("purple");
+                messageSender.execute("purple", IP);
             }
         });
         cyanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 MessageSender messageSender = new MessageSender(MainActivity.this);
-                messageSender.execute("cyan");
+                messageSender.execute("cyan", IP);
             }
         });
         greenBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 MessageSender messageSender = new MessageSender(MainActivity.this);
-                messageSender.execute("green");
+                messageSender.execute("green", IP);
             }
         });
         alarmONOFF.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -65,11 +79,11 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     MessageSender messageSender = new MessageSender(MainActivity.this);
-                    messageSender.execute("alarmOn");
+                    messageSender.execute("alarmOn", IP);
                 }
                 else{
                     MessageSender messageSender = new MessageSender(MainActivity.this);
-                    messageSender.execute("alarmOff");
+                    messageSender.execute("alarmOff", IP);
                 }
             }
         });
@@ -94,11 +108,11 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
         }
         textView.setText("ALARM TIME SET TO "+h+":"+m);
         MessageSender messageSender = new MessageSender(MainActivity.this);
-        messageSender.execute("sa"+h+"m"+m+"end");
+        messageSender.execute("sa"+h+"m"+m+"end", IP);
     }
     public void send(View v){
         MessageSender messageSender = new MessageSender(MainActivity.this);
-        messageSender.execute(e1.getText().toString());
+        messageSender.execute(e1.getText().toString(), IP);
         //tv.setText(messageSender.receivedMessage);
         //Log.d("send ",messageSender.doInBackground());
         //messageSender.recievedMessage();
@@ -110,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
         e1.setText("");
 
         //String temp = e1.getText() +"\n" +msg;
-
         tv.setText(msg + "\n"+ tv.getText());
+
     }
 }
